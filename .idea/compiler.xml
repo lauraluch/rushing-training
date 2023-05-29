@@ -9,8 +9,5 @@
         <module name="rushing-training" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="rushing-training" target="17" />
-    </bytecodeTargetLevel>
   </component>
 </project>
