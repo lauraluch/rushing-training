@@ -2,7 +2,7 @@ package com.example.rushingtraining.entities.utils;
 import java.util.Objects;
 
 public class CPF {
-    private String cpf;
+    private final String cpf;
 
     public CPF(String cpf) throws IllegalArgumentException {
         if (!validarCPF(cpf))
