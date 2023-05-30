@@ -5,18 +5,22 @@ import java.util.Objects;
 public class Exercicio {
     private String nome;
     private String aparelhoNecessario;
+
+    private String repeticoesEsperadas;
     private String pathImagemAparelho;
 
-    public Exercicio(String nome, String aparelhoNecessario, String pathImagemAparelho) {
+    public Exercicio(String nome, String aparelhoNecessario, String repeticoesEsperadas, String pathImagemAparelho) {
         this.nome = nome;
         this.aparelhoNecessario = aparelhoNecessario;
+        this.repeticoesEsperadas = repeticoesEsperadas;
         this.pathImagemAparelho = pathImagemAparelho;
     }
 
     @Override
     public String toString() {
         return "Exercicio: " + nome +
-                "\nAparelho Necessario: " + aparelhoNecessario;
+                "\nAparelho Necessario: " + aparelhoNecessario +
+                "\nRepetições Esperadas: " + repeticoesEsperadas;
     }
 
     public Exercicio() {
@@ -28,6 +32,14 @@ public class Exercicio {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getRepeticoesEsperadas() {
+        return repeticoesEsperadas;
+    }
+
+    public void setRepeticoesEsperadas(String repeticoesEsperadas) {
+        this.repeticoesEsperadas = repeticoesEsperadas;
     }
 
     public String getAparelhoNecessario() {
