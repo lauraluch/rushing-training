@@ -4,9 +4,12 @@ module rushingtraining {
     requires java.sql;
 
 
-    opens com.example.rushingtraining.applicationAluno.view to javafx.fxml;
+    opens com.example.rushingtraining.applicationAluno.view;
+    opens com.example.rushingtraining.applicationAluno.controller;
     exports com.example.rushingtraining.applicationAluno.view;
+    exports com.example.rushingtraining.applicationAluno.controller;
 
-    opens com.example.rushingtraining.applicationFuncionario.view to javafx.fxml;
+    opens com.example.rushingtraining.applicationFuncionario.view;
     exports com.example.rushingtraining.applicationFuncionario.view;
+
 }
