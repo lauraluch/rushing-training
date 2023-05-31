@@ -1,13 +1,11 @@
 package com.example.rushingtraining.entities;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 
 public class Treino {
     private String nome;
     private String descricao;
-    private final Map<String, Integer> exercicios = new HashMap<>();
+    private final List<GrupoTreino> listaGrupoTreinos = new ArrayList<>();
 
     public Treino(String nome, String descricao) {
         this.nome = nome;
@@ -21,8 +19,7 @@ public class Treino {
     public String toString() {
         return "Treino{" +
                 "nome='" + nome + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", exercicios=" + exercicios +
+                ", descricao='" + descricao +
                 '}';
     }
 
@@ -53,5 +50,9 @@ public class Treino {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public List<GrupoTreino> getListaGrupoTreinos() {
+        return listaGrupoTreinos;
     }
 }
