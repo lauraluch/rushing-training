@@ -5,7 +5,6 @@ import java.util.Objects;
 public class Exercicio {
     private String nome;
     private String aparelhoNecessario;
-
     private String repeticoesEsperadas;
     private String pathImagemAparelho;
 
