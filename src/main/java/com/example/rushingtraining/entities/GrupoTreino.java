@@ -6,11 +6,13 @@ import java.util.Objects;
 
 public class GrupoTreino {
 
+    private final int id;
     private String nome;
-    private final List<Exercicio> listaExercicios = new ArrayList<>();
+    private List<Exercicio> listaExercicios = new ArrayList<>();
 
-    public GrupoTreino(String nome) {
+    GrupoTreino(String nome) {
         this.nome = nome;
+        id = this.hashCode();
     }
 
     @Override
@@ -18,12 +20,7 @@ public class GrupoTreino {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         GrupoTreino that = (GrupoTreino) o;
-        return nome.equals(that.nome);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome);
+        return id == that.id;
     }
 
     @Override
@@ -31,6 +28,10 @@ public class GrupoTreino {
         return "GrupoTreino{" +
                 "nome='" + nome + '\'' +
                 '}';
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getNome() {
@@ -43,5 +44,9 @@ public class GrupoTreino {
 
     public List<Exercicio> getListaExercicios() {
         return listaExercicios;
+    }
+
+    public void setListaExercicios(List<Exercicio> listaExercicios) {
+        this.listaExercicios = listaExercicios;
     }
 }

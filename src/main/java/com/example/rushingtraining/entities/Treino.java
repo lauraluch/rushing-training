@@ -3,16 +3,20 @@ package com.example.rushingtraining.entities;
 import java.util.*;
 
 public class Treino {
+
+    private final int id;
     private String nome;
     private String descricao;
-    private final List<GrupoTreino> listaGrupoTreinos = new ArrayList<>();
+    private List<GrupoTreino> listaGrupoTreinos = new ArrayList<>();
 
     public Treino(String nome, String descricao) {
         this.nome = nome;
         this.descricao = descricao;
+        id = this.hashCode();
     }
 
-    public Treino() {
+    public Treino(int id) {
+        this.id = id;
     }
 
     @Override
@@ -28,12 +32,7 @@ public class Treino {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Treino treino = (Treino) o;
-        return Objects.equals(nome, treino.nome) && Objects.equals(descricao, treino.descricao);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome, descricao);
+        return id == treino.id;
     }
 
     public String getNome() {
@@ -54,5 +53,9 @@ public class Treino {
 
     public List<GrupoTreino> getListaGrupoTreinos() {
         return listaGrupoTreinos;
+    }
+
+    public void setListaGrupoTreinos(List<GrupoTreino> listaGrupoTreinos) {
+        this.listaGrupoTreinos = listaGrupoTreinos;
     }
 }
