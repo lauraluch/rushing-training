@@ -13,8 +13,8 @@ public class Aluno {
     private final CPF cpf;
     private String telefone;
     private LocalDate dataNasc;
-    private float peso;
-    private float altura;
+    private double peso;
+    private double altura;
     private Estado estadoAluno;
 
     public Aluno(String matricula, int hashSenha, String nome, CPF cpf,
@@ -80,7 +80,7 @@ public class Aluno {
         this.dataNasc = dataNasc;
     }
 
-    public float getPeso() {
+    public double getPeso() {
         return peso;
     }
 
@@ -88,7 +88,7 @@ public class Aluno {
         this.peso = peso;
     }
 
-    public float getAltura() {
+    public double getAltura() {
         return altura;
     }
 
