@@ -8,11 +8,11 @@ public class AtribuicaoTreino {
 
     private DiaTreino treinoDoDia;
 
-    private Treino treino;
+    private final Treino treino;
 
-    private Aluno aluno;
+    private final Aluno aluno;
 
-    private String nomeProfessor;
+    private final String nomeProfessor;
 
     private int treinosRestantes;
 
