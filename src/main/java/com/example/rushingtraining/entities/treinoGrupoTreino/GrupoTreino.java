@@ -1,8 +1,9 @@
-package com.example.rushingtraining.entities;
+package com.example.rushingtraining.entities.treinoGrupoTreino;
+
+import com.example.rushingtraining.entities.Exercicio;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class GrupoTreino {
 

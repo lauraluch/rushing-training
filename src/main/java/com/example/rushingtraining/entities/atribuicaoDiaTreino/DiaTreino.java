@@ -1,4 +1,6 @@
-package com.example.rushingtraining.entities;
+package com.example.rushingtraining.entities.atribuicaoDiaTreino;
+
+import com.example.rushingtraining.entities.treinoGrupoTreino.GrupoTreino;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

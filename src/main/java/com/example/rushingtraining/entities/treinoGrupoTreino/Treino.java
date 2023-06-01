@@ -1,4 +1,4 @@
-package com.example.rushingtraining.entities;
+package com.example.rushingtraining.entities.treinoGrupoTreino;
 
 import java.util.*;
 

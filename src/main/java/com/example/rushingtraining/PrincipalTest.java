@@ -1,9 +1,6 @@
 package com.example.rushingtraining;
 
 import com.example.rushingtraining.entities.Exercicio;
-import com.example.rushingtraining.entities.GrupoTreino;
-
-import javax.crypto.spec.PSource;
 
 public class PrincipalTest {
     public static void main(String[] args) {
