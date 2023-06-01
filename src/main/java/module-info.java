@@ -10,6 +10,8 @@ module rushingtraining {
     exports com.example.rushingtraining.applicationAluno.controller;
 
     opens com.example.rushingtraining.applicationFuncionario.view;
+    opens com.example.rushingtraining.applicationFuncionario.controller;
     exports com.example.rushingtraining.applicationFuncionario.view;
+    exports com.example.rushingtraining.applicationFuncionario.controller;
 
 }

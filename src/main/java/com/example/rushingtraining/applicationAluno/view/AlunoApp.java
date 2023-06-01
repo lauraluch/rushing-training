@@ -20,7 +20,7 @@ public class AlunoApp extends Application {
         stage.setTitle("Rushing Training");
         //stage.setWidth(650);
         //stage.setHeight(650);
-        //stage.setResizable(false);
+        stage.setResizable(false);
 
 
 
