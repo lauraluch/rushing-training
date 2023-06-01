@@ -1,4 +1,6 @@
-package com.example.rushingtraining.entities;
+package com.example.rushingtraining.entities.atribuicaoDiaTreino;
+
+import com.example.rushingtraining.entities.treinoGrupoTreino.GrupoTreino;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -9,14 +11,11 @@ public class DiaTreino {
     private LocalTime horaInicio;
     private LocalTime horaFim;
 
-    public DiaTreino(GrupoTreino grupoTreino, LocalDate dataTreino, LocalTime horaInicio, LocalTime horaFim) {
+    DiaTreino(GrupoTreino grupoTreino, LocalDate dataTreino, LocalTime horaInicio, LocalTime horaFim) {
         this.grupoTreino = grupoTreino;
         this.dataTreino = dataTreino;
         this.horaInicio = horaInicio;
         this.horaFim = horaFim;
-    }
-
-    public DiaTreino() {
     }
 
     @Override

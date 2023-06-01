@@ -3,6 +3,8 @@ package com.example.rushingtraining.entities;
 import java.util.Objects;
 
 public class Exercicio {
+
+    private int id;
     private String nome;
     private String aparelhoNecessario;
     private String repeticoesEsperadas;
@@ -13,6 +15,7 @@ public class Exercicio {
         this.aparelhoNecessario = aparelhoNecessario;
         this.repeticoesEsperadas = repeticoesEsperadas;
         this.pathImagemAparelho = pathImagemAparelho;
+        id = this.hashCode();
     }
 
     @Override
@@ -20,6 +23,14 @@ public class Exercicio {
         return "Exercicio: " + nome +
                 "\nAparelho Necessario: " + aparelhoNecessario +
                 "\nRepetições Esperadas: " + repeticoesEsperadas;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Exercicio exercicio = (Exercicio) o;
+        return id == exercicio.id;
     }
 
     public Exercicio() {
@@ -31,6 +42,10 @@ public class Exercicio {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public String getRepeticoesEsperadas() {
@@ -57,16 +72,4 @@ public class Exercicio {
         this.pathImagemAparelho = pathImagemAparelho;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Exercicio exercicio = (Exercicio) o;
-        return Objects.equals(nome, exercicio.nome);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nome);
-    }
 }
