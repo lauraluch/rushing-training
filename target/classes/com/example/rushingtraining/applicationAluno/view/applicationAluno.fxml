@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="671.0" prefWidth="372.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.rushingtraining.applicationAluno.controller.AlunoController">
    <children>
-      <Label fx:id="labelHello" layoutX="23.0" layoutY="22.0" text="Olá,">
+      <Label fx:id="labelHello" layoutX="23.0" layoutY="22.0" text="Olá," AnchorPane.leftAnchor="23.0">
          <font>
             <Font size="22.0" />
          </font>
       </Label>
-      <Label fx:id="labelName" layoutX="67.0" layoutY="22.0" prefHeight="32.0" prefWidth="76.0" text="Aluno" textAlignment="CENTER">
+      <Label fx:id="labelName" layoutX="69.0" layoutY="22.0" prefHeight="32.0" prefWidth="76.0" text="Aluno" textAlignment="CENTER" AnchorPane.leftAnchor="69.0">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -26,7 +26,7 @@
          </font>
       </Label>
       <Button fx:id="btnProgress" layoutX="99.0" layoutY="573.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="176.0" text="Visualizar Progresso" />
-      <Label fx:id="labelDate" layoutX="25.0" layoutY="59.0" text="18/06/2023">
+      <Label fx:id="labelDate" layoutX="25.0" layoutY="59.0" text="18/06/2023" AnchorPane.leftAnchor="23.0">
          <font>
             <Font size="17.0" />
          </font>
