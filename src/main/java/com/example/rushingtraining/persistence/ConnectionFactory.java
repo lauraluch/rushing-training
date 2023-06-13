@@ -4,6 +4,7 @@ import java.sql.*;
 
 public class ConnectionFactory {
     private static Connection connection;
+    private static PreparedStatement preparedStatement;
 
     public static Connection createConnection() throws SQLException {
         if(connection == null)
@@ -11,7 +12,13 @@ public class ConnectionFactory {
         return connection;
     }
 
-    public static PreparedStatement createPreparedStatement(String sql) throws SQLException {
-        return createConnection().prepareStatement(sql);
+    public static PreparedStatement createPreparedStatement(String sql) {
+        try {
+            preparedStatement = createConnection().prepareStatement(sql);
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return preparedStatement;
     }
 }
