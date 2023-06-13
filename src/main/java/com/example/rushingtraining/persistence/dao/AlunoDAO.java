@@ -7,5 +7,5 @@ import com.example.rushingtraining.persistence.utils.GenericDAO;
 import java.util.List;
 import java.util.Optional;
 
-public class AlunoDAO implements{
+public class AlunoDAO {
 }
