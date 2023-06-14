@@ -9,6 +9,13 @@ import java.util.Optional;
 
 public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>{
 
+    /* TODO: Criar a função de select e select all
+            Select
+            - Criar query
+            - Pegar result set da entidade e verificar se ele é válido
+            - Se for, pegar as informações e retornar objeto
+            - Sen retornar optional (n sei como funfa direito)*/
+
     protected abstract String criarSqlSave();
     protected abstract String criarSqlUpdate();
     protected abstract String criarSqlDelete();
@@ -17,6 +24,7 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
     protected abstract void setEntidadeParaPreparedStmt(T entidade, PreparedStatement stmt) throws SQLException;
     protected abstract void setKeyParaPreparedStmt(K key, PreparedStatement stmt) throws SQLException;
     protected abstract K getKeyEntidade(T entidade);
+    protected abstract T getEntidadeFromResultSet(ResultSet rs);
     private String sql;
 
     @Override
@@ -51,10 +59,7 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
     @Override
     public Optional<T> select(K key){
         sql = criarSqlSelect();
-        //ResultSet rs = getResultSetDeKey(key);
-
-        Optional<T> entidade = Optional.empty();
-        return entidade;
+        return getEntidadeSelect(key);
     }
 
     private void executarSqlViaKey(K key) {
@@ -66,24 +71,21 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
         }
     }
 
-    /* TODO: Criar a função de select e select all
-            Select
-            - Criar query
-            - Pegar result set da entidade e verificar se ele é válido
-            - Se for, pegar as informações e retornar objeto
-            - Sen retornar optional (n sei como funfa direito)
-    private ResultSet criarEntidade(K key) {
-        try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
+    private Optional<T> getEntidadeSelect(K key) {
+        try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
             setKeyParaPreparedStmt(key, stmt);
             ResultSet rs = stmt.executeQuery();
 
-            if(rs.next()) {
-                return rs;
+            if (rs.next()) {
+                return Optional.of(getEntidadeFromResultSet(rs));
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }*/
+
+        return Optional.empty();
+    }
+
 
     private void executarSqlViaEntidate(T entidade){
         try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
