@@ -5,6 +5,8 @@ import com.example.rushingtraining.persistence.ConnectionFactory;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>{
@@ -20,6 +22,7 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
     protected abstract String criarSqlUpdate();
     protected abstract String criarSqlDelete();
     protected abstract String criarSqlSelect();
+    protected abstract String criarSqlSelectAll();
 
     protected abstract void setEntidadeParaPreparedStmt(T entidade, PreparedStatement stmt) throws SQLException;
     protected abstract void setKeyParaPreparedStmt(K key, PreparedStatement stmt) throws SQLException;
@@ -62,6 +65,12 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
         return getEntidadeSelect(key);
     }
 
+    @Override
+    public List<T> selectAll(){
+        sql = criarSqlSelectAll();
+        return getListaEntidades();
+    }
+
     private void executarSqlViaKey(K key) {
         try(PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)){
             setKeyParaPreparedStmt(key, stmt);
@@ -84,6 +93,24 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
         }
 
         return Optional.empty();
+    }
+
+    private List<T> getListaEntidades() {
+        List<T> listEntidades = new ArrayList<>();
+
+        try (PreparedStatement stmt = ConnectionFactory.createPreparedStatement(sql)) {
+
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                T entidade = getEntidadeFromResultSet(rs);
+                listEntidades.add(entidade);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return listEntidades;
     }
 
 
