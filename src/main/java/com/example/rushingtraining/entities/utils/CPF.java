@@ -43,7 +43,7 @@ public class CPF {
                 && Character.getNumericValue(cpf.charAt(10)) == digito2);
     }
 
-    public String getCpf() {
+    public String getCpfString() {
         return cpf;
     }
 

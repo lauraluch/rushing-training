@@ -10,14 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>{
-
-    /* TODO: Criar a função de select e select all
-            Select
-            - Criar query
-            - Pegar result set da entidade e verificar se ele é válido
-            - Se for, pegar as informações e retornar objeto
-            - Sen retornar optional (n sei como funfa direito)*/
-
     protected abstract String criarSqlSave();
     protected abstract String criarSqlUpdate();
     protected abstract String criarSqlDelete();
@@ -27,7 +19,7 @@ public abstract class AbstractSqlTemplateDAO <T, K> implements GenericDAO <T, K>
     protected abstract void setEntidadeParaPreparedStmt(T entidade, PreparedStatement stmt) throws SQLException;
     protected abstract void setKeyParaPreparedStmt(K key, PreparedStatement stmt) throws SQLException;
     protected abstract K getKeyEntidade(T entidade);
-    protected abstract T getEntidadeFromResultSet(ResultSet rs);
+    protected abstract T getEntidadeFromResultSet(ResultSet rs) throws SQLException;
     private String sql;
 
     @Override

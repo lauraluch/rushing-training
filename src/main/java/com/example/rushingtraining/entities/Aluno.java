@@ -35,6 +35,12 @@ public class Aluno {
         this.cpf = cpf;
     }
 
+    public Aluno(String matricula, int hashSenha, CPF cpf) {
+        this.matricula = matricula;
+        this.hashSenha = hashSenha;
+        this.cpf = cpf;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -102,5 +108,9 @@ public class Aluno {
 
     public void setEstadoAluno(Estado estadoAluno) {
         this.estadoAluno = estadoAluno;
+    }
+
+    public int getHashSenha() {
+        return hashSenha;
     }
 }

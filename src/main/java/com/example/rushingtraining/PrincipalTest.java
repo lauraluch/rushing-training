@@ -1,20 +1,22 @@
 package com.example.rushingtraining;
 
+import com.example.rushingtraining.entities.Aluno;
 import com.example.rushingtraining.entities.Exercicio;
+import com.example.rushingtraining.entities.utils.CPF;
+import com.example.rushingtraining.enums.Estado;
+import com.example.rushingtraining.persistence.dao.AlunoDAO;
+
+import java.time.LocalDate;
 
 public class PrincipalTest {
     public static void main(String[] args) {
-        Exercicio ex1 = new Exercicio("nome", "banco", "3x12", "imagem");
-        Exercicio ex2 = new Exercicio("nome", "banco", "3x12", "imagem");
-        Exercicio ex3 = new Exercicio("nome2", "banco", "3x12", "imagem");
-        System.out.println(ex1.getId());
-        System.out.println(ex2.getId());
-        System.out.println(ex3.getId());
+        AlunoDAO alunoDAO = new AlunoDAO();
+        CPF cpf = new CPF("123.456.789-00");
+        Aluno aluno = new Aluno("MATRICULA01", 123, "Laura Chiquetano", cpf, "(16) 992993456", LocalDate.now(),
+                50, 180, Estado.ATIVO);
 
-        /*GrupoTreino gp = new GrupoTreino("gp1");
-        System.out.println(gp.getId());
-        gp.addExercicio(ex1);
-        System.out.println(gp.getId());*/
+        alunoDAO.save(aluno);
+        System.out.println(alunoDAO.select("MATRICULA01").toString());
     }
 
 }
